@@ -19,6 +19,7 @@ class TaskDetail(DetailView):
 
 class TaskCreate(CreateView):
     model = Task
-    fields = "__all__"
-    success_url = reverse_lazy('task-list')  # when we click the button redirects to 'task' in urls.py line 5.
+    fields = "__all__"                  # all the fields from the models are imported to webpage.
+    # fields = ['title', 'description']     # here only title & description fields are imported to webpage
+    success_url = reverse_lazy('task')  # when we click the button redirects to 'task' in urls.py line 5.
     

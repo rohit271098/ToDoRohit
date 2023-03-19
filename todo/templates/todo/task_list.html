@@ -1,17 +1,30 @@
-<h1>My todo list</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1>My ToDo List</h1>
+<body>
+    <table>
+        <tr>
+            <th>Items</th>
+        </tr>
+        {% for tasks in task %}
+        <tr>
+            <td> {{tasks.title}}</td>
+            <td><a href="{% url 'tasks-detail' tasks.id %}">View</a></td>  <!-- the tasks.id is from tasks on line 7 -->
+            <td><a href="{% url 'task-create' %}">Add</a></td>
+        </tr>
+        {% empty %}
+        <h3>No items in the list</h3>
+        <a href="">Add New Item</a>
+        {% endfor %} 
+    </table>
+    
+</body>
+</html>
 
-<table>
-    <tr>
-        <th>Items</th>
-    </tr>
-    {% for tasks in task %}
-    <tr>
-        <td> {{tasks.title}}</td>
-        <td><a href="{% url 'tasks-detail' tasks.id %}">View</a></td>  <!-- the tasks.id is from tasks on line 7 -->
-    </tr>
-    {% empty %}
-    <h3>No items in the list</h3>
-    <a href="">Add New Item</a>
-    {% endfor %} 
-</table>
 

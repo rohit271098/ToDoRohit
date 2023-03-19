@@ -6,3 +6,4 @@ urlpatterns = [
     path('task-create/',TaskCreate.as_view(), name="task-create" ),
     path('task/<int:pk>/', TaskDetail.as_view(), name="tasks-detail"),
 ]
+
